@@ -216,7 +216,7 @@ export const VendorBidsPage: React.FC = () => {
                       )}
                       {bid.total_quoted_price && (
                         <span className="font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                          Quoted: {bid.currency} {bid.total_quoted_price.toLocaleString()}
+                          Quoted: {bid.currency} {Number(bid.total_quoted_price).toLocaleString()}
                         </span>
                       )}
                       <span>{bid.documents.length} File(s) Attached</span>

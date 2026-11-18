@@ -173,16 +173,16 @@ export const ScorecardPage: React.FC = () => {
                         </td>
                         <td className="py-3.5 px-3 font-mono text-xs text-slate-700">
                           {v.technical_scores.length > 0
-                            ? `${v.technical_scores.reduce((acc, s) => acc + (s.weighted_score || 0), 0).toFixed(2)} pts`
+                            ? `${v.technical_scores.reduce((acc, s) => acc + Number(s.weighted_score || 0), 0).toFixed(2)} pts`
                             : 'Pending'}
                         </td>
                         <td className="py-3.5 px-3 font-mono text-xs text-slate-700">
                           {v.commercial_score?.weighted_score != null
-                            ? `${v.commercial_score.weighted_score.toFixed(2)} pts`
+                            ? `${Number(v.commercial_score.weighted_score).toFixed(2)} pts`
                             : 'Pending'}
                         </td>
                         <td className="py-3.5 px-3 font-mono font-bold text-slate-900">
-                          {v.composite_score != null ? `${v.composite_score.toFixed(2)}` : 'Pending'}
+                          {v.composite_score != null ? `${Number(v.composite_score).toFixed(2)}` : 'Pending'}
                         </td>
                         <td className="py-3.5 px-3 text-right">
                           <button

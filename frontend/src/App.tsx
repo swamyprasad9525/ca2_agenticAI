@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Sidebar } from './components/layout/Sidebar';
+import { ErrorBoundary } from './components/common/ErrorBoundary';
 import { Dashboard } from './pages/Dashboard';
 import { TendersPage } from './pages/TendersPage';
 import { VendorBidsPage } from './pages/VendorBidsPage';
@@ -17,14 +18,16 @@ export const App: React.FC = () => {
         <div className="flex flex-1">
           <Sidebar />
           <main className="flex-1 p-8 max-w-7xl mx-auto w-full">
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/tenders" element={<TendersPage />} />
-              <Route path="/vendors" element={<VendorBidsPage />} />
-              <Route path="/evaluations" element={<EvaluationWorkspace />} />
-              <Route path="/scorecard" element={<ScorecardPage />} />
-              <Route path="/reports" element={<ReportsPage />} />
-            </Routes>
+            <ErrorBoundary>
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/tenders" element={<TendersPage />} />
+                <Route path="/vendors" element={<VendorBidsPage />} />
+                <Route path="/evaluations" element={<EvaluationWorkspace />} />
+                <Route path="/scorecard" element={<ScorecardPage />} />
+                <Route path="/reports" element={<ReportsPage />} />
+              </Routes>
+            </ErrorBoundary>
           </main>
         </div>
       </div>

@@ -141,7 +141,7 @@ export const TendersPage: React.FC = () => {
                     {t.estimated_budget && (
                       <span className="flex items-center gap-1.5">
                         <DollarSign className="w-3.5 h-3.5 text-slate-400" />
-                        {t.currency} {t.estimated_budget.toLocaleString()}
+                        {t.currency} {Number(t.estimated_budget).toLocaleString()}
                       </span>
                     )}
                     <span className="flex items-center gap-1.5">

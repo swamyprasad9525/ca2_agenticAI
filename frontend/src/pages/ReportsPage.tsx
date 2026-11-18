@@ -185,7 +185,9 @@ export const ReportsPage: React.FC = () => {
               <div className="text-right">
                 <span className="text-xs text-slate-400">Winning Composite Score</span>
                 <p className="text-3xl font-black text-emerald-400 mt-0.5">
-                  {recommendation.winning_composite_score ? `${recommendation.winning_composite_score.toFixed(2)}/100` : 'N/A'}
+                  {recommendation.winning_composite_score != null
+                    ? `${Number(recommendation.winning_composite_score).toFixed(2)}/100`
+                    : 'N/A'}
                 </p>
                 <div className="mt-2">
                   <Badge variant={recommendation.status === 'APPROVED' ? 'success' : 'warning'}>

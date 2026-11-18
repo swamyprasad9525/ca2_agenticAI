@@ -245,7 +245,9 @@ export const EvaluationWorkspace: React.FC = () => {
                 <div className="text-right">
                   <span className="text-xs text-slate-500">Composite Score</span>
                   <p className="text-xl font-black text-emerald-700">
-                    {recommendation.winning_composite_score ? `${recommendation.winning_composite_score.toFixed(2)}/100` : 'N/A'}
+                    {recommendation.winning_composite_score != null
+                      ? `${Number(recommendation.winning_composite_score).toFixed(2)}/100`
+                      : 'N/A'}
                   </p>
                 </div>
               </div>
